@@ -18,6 +18,11 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<MyError>(err, HttpStatus.BAD_REQUEST);
 	}
 	
+	@ExceptionHandler(OrderNotFoundException.class)
+	public ResponseEntity<MyError> orderExceptionHandler(OrderNotFoundException pne, WebRequest wr){
+		MyError err= new MyError(LocalDateTime.now(),pne.getMessage(), wr.getDescription(false));
+		return new ResponseEntity<MyError>(err, HttpStatus.BAD_REQUEST);
+	}
 	
 	@ExceptionHandler(NoHandlerFoundException.class)
 	public ResponseEntity<MyError> mynotFoundHandler(NoHandlerFoundException nfe,WebRequest req)  {
