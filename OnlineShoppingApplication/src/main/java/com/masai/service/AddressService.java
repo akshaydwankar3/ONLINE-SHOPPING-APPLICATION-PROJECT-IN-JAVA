@@ -1,6 +1,6 @@
-package com.masai.addressC;
+package com.masai.service;
 
-import com.masai.model.Address;
+import com.masai.entity.Address;
 
 public interface AddressService {
 	

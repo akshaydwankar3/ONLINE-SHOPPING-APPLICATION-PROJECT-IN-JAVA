@@ -1,4 +1,4 @@
-package com.masai.addressC;
+package com.masai.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.masai.model.Address;
+import com.masai.entity.Address;
+import com.masai.service.AddressService;
 
 @RestController
 public class AddressController{

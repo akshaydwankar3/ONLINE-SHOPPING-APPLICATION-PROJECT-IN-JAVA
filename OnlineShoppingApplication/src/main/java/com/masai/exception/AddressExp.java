@@ -1,4 +1,4 @@
-package masai.com.Exeptions;
+package com.masai.exception;
 
 public class AddressExp extends RuntimeException{
 	
