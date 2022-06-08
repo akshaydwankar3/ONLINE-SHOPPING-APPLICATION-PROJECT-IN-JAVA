@@ -2,7 +2,7 @@ package com.masai.controller;
 
 import com.masai.model.Session;
 import com.masai.model.User;
-import com.masai.repository.UserDao;
+import com.masai.reopsitory.UserDao;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
