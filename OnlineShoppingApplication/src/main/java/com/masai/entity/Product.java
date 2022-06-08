@@ -16,7 +16,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Product {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer productId;
@@ -24,6 +24,5 @@ public class Product {
 	private String category;
 	private double price;
 	private Integer quantity;
-	
 	
 }
