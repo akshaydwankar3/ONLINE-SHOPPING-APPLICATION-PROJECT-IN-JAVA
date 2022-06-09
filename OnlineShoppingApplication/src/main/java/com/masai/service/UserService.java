@@ -25,7 +25,7 @@ public interface UserService {
 	public User updateUsername(String mobile,String newusername) throws UserException;
 		
 	
-	public User updatePassword(String username, String newpassword) throws UserException;
+	public User updatePassword(String username,String mobile, String newpassword) throws UserException;
 	
 	
 	

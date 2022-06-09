@@ -44,7 +44,7 @@ public class UserController {
   }
   
   @PostMapping("/user/login")
-  public String loginUserHandler(@RequestBody User user) {
+  public String loginUserHandler(@RequestBody UserLogin user) {
     return uService.loginUser(user.getUsername(), user.getPassword());
   }
 
@@ -70,9 +70,9 @@ public class UserController {
 	  return new ResponseEntity<User>(user, HttpStatus.ACCEPTED);
   }
   
-  @PutMapping("/user/{username}")
-  public ResponseEntity<User> updatePasswordByUser(@PathVariable("username") String mobile, @RequestParam("password") String newpassword){
-	  User user= uService.updatePassword(mobile, newpassword);
+  @PutMapping("/user/{username}/{mobile}")
+  public ResponseEntity<User> updatePasswordByUser(@PathVariable("username") String username,@PathVariable("mobile") String mobile, @RequestParam("password") String newpassword){
+	  User user= uService.updatePassword(username,mobile, newpassword);
 	  return new ResponseEntity<User>(user, HttpStatus.ACCEPTED);
   }
   

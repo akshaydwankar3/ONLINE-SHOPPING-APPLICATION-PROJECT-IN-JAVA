@@ -75,7 +75,8 @@ public class CartServiceImpl implements CartService{
 		if(cart!=null) {
 			List<Product> pr = cart.getProducts();
 			for(Product p:pr) {
-				total+=p.getPrice();
+				Integer c=p.getQuantity();
+				total+=(p.getPrice())*c;
 			}
 			return total;
 		}
@@ -119,6 +120,7 @@ public class CartServiceImpl implements CartService{
 			List<Product> prod=carts.getProducts();
 			prod.addAll(product);
 				carts.setProducts(prod);
+				CR.save(carts);
 			 return carts;
 		}
 		else {

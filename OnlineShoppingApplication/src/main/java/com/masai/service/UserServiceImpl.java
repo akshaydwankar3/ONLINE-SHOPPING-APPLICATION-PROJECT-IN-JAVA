@@ -22,8 +22,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserLoginDao lDao;
 	
-//	@Autowired
-//	private PasswordEncoder encode;
+
 
 	@Override
 	public User addUser(User user) {
@@ -79,8 +78,6 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
-
-
 	@Override
 	public List<User> getAllUser() throws UserException {
 		List<User> user=uDao.findAll();
@@ -102,7 +99,7 @@ public class UserServiceImpl implements UserService {
 		if(user!=null) {
 			
 			user.setUsername(newusername);
-			
+			uDao.save(user);
 			return user;
 		}
 		else {
@@ -113,10 +110,12 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public User updatePassword(String username, String newpassword) throws UserException {
+	public User updatePassword(String username,String mobile, String newpassword) throws UserException {
 		User user=uDao.findByUsername(username);
-		if(user!=null) {
+		if(user!=null && user.getMobile().equals(mobile)) {
+			
 			user.setPassword(newpassword);
+			uDao.save(user);
 			return user;
 		}
 		else {

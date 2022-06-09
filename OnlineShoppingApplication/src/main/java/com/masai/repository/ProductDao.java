@@ -28,6 +28,9 @@ public interface ProductDao extends JpaRepository<Product, Integer>  {
 	@Query("select new com.masai.dto.ProductDTO(p.productName,p.price) from Product p where p.productName=:name")
 	    public List<ProductDTO> getProductNameAndMarksById(@Param("name") String name);
 	
-	@Query("select p.productName from Product p where p.price<:price")
+	@Query("select p.productName from Product p where p.price<=:price")
 	public List<String> getProductnameByPrice(@Param("price") Double price);
+	
+	@Query("select p.productName from Product p where p.category=:cat")
+	public List<String> getProductnameByCatagory(@Param("cat") String cat);
 }
