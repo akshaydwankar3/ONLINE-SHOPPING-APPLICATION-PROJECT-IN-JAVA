@@ -48,7 +48,10 @@ public class CartServiceImpl implements CartService{
 	}
 		
 		
-}
+   }
+	
+	
+	
 	@Override
 	public Product deleteProductbyId(Integer id) {
 		Integer cartId= CR.getIdByPid(id);
@@ -125,6 +128,29 @@ public class CartServiceImpl implements CartService{
 		}
 		else {
 			throw new CartException("Cart dose not exist ...");
+		}
+	}
+
+	@Override
+	public Cart getCartById(Integer id) throws CartException {
+		Optional<Cart> cart=CR.findById(id);
+		if(cart.isPresent()) {
+			return cart.get();
+		}
+		else {
+			throw new CartException("Cart dose not exist with id: "+id);
+		}
+	}
+
+	@Override
+	public Cart deleteCartById(Integer id) throws CartException {
+		Optional<Cart> cart=CR.findById(id);
+		if(cart.isPresent()) {
+			CR.delete(cart.get());
+			return cart.get();
+		}
+		else {
+			throw new CartException("Cart dose not exist with id :"+id);
 		}
 	}
 

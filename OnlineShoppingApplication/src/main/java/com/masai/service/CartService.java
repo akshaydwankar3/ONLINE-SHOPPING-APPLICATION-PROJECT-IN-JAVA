@@ -13,10 +13,13 @@ public interface CartService {
 		
 	public Cart addProductTocart(Integer id ,List<Product> product) throws CartException;
 	
+	public Cart getCartById(Integer id)throws CartException;
 	
 	public Product getProductbyId(Integer id) throws CartException;
 	
 	public Product deleteProductbyId(Integer id)throws CartException;
+	
+	public Cart deleteCartById(Integer id) throws CartException;
 	
 	public Double getTotal(Integer id) throws CartException;
 	

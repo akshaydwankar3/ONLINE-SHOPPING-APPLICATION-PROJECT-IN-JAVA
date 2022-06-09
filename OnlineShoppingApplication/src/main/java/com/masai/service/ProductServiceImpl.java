@@ -17,6 +17,7 @@ public class ProductServiceImpl implements ProductService {
 	private ProductDao pDao;
 	@Override
 	public Product saveProduct(Product product) {
+	
 		return pDao.save(product);
 	}
 

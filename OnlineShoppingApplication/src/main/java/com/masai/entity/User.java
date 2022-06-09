@@ -30,7 +30,7 @@ public class User {
 	private String email;
 	
 	@Column(name = "mobile")
-	@Size(min=10, max=10,message="Mobile number is ")
+	@Size(min=10, max=10,message="Mobile number shuld be 10 digit.. ")
 	private String mobile;
 	
 	@Column(name = "username")

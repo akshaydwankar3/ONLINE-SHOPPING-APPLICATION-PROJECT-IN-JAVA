@@ -8,4 +8,5 @@ import com.masai.entity.Customer;
 @Repository
 public interface CustomerDao extends JpaRepository<Customer, Integer>{
 
+	
 }

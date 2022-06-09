@@ -36,6 +36,13 @@ public class CartController {
 		return savedProduct;
 	}
 	
+	@GetMapping("/getCart/{id}")
+	public ResponseEntity<Cart> getCartDetailsById(@PathVariable("id") Integer id) {
+		Cart cart=cService.getCartById(id);
+		
+		return new ResponseEntity<Cart>(cart, HttpStatus.ACCEPTED);
+	}
+	
 	@GetMapping("/carts/{id}")
 	public Product getProductbyIdHandler(@PathVariable("id") Integer id) {
 		return cService.getProductbyId(id);
@@ -66,5 +73,10 @@ public class CartController {
 	public List<Cart> allCarts(){
 		List<Cart> cart= cService.getCartDetails();
 		return cart;
+	}
+	
+	@DeleteMapping("/deletecart/{id}")
+	public Cart deleteCartDetailsById(@PathVariable("id") Integer id) {
+		return cService.deleteCartById(id);
 	}
 }

@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -26,6 +27,8 @@ public class Customer {
 	private Integer customerId;
 	private String firstName;
 	private String lastName;
+	
+	@Size(min=10,max=10,message="Mobile Number should be 10 digit..")
 	private String mobileNumber;
 	
 //	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cutomer")
