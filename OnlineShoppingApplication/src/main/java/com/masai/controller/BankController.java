@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.masai.entity.Bank;
 import com.masai.entity.Product;
-import com.masai.reopsitory.BankDao;
+import com.masai.repository.BankDao;
 import com.masai.service.BankService;
 
 @RestController

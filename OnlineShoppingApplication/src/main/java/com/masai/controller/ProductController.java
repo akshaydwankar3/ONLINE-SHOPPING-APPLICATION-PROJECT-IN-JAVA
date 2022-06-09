@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.masai.dto.ProductDTO;
 import com.masai.entity.Product;
 import com.masai.exception.ProductNotFoundException;
-import com.masai.reopsitory.ProductDao;
+import com.masai.repository.ProductDao;
 import com.masai.service.ProductService;
 
 @RestController

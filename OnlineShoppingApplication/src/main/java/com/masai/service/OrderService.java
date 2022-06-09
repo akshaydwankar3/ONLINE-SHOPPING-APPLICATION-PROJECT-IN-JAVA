@@ -3,6 +3,8 @@ package com.masai.service;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.masai.entity.Address;
+import com.masai.entity.Customer;
 import com.masai.entity.Order;
 import com.masai.exception.OrderNotFoundException;
 import com.masai.exception.ProductNotFoundException;
@@ -25,6 +27,8 @@ public interface OrderService {
 	
 	public List<Order> getOrderDetailsByStatus(String status) throws OrderNotFoundException;
 	
+	public Address getAddressByOrderId(Integer id)throws OrderNotFoundException;
 	
+	public Customer getCustomerByOrderId(Integer id)throws OrderNotFoundException;
 	
 }

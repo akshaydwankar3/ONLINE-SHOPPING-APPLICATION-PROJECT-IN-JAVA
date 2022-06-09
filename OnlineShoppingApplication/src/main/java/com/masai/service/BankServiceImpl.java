@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 import com.masai.entity.Bank;
-import com.masai.reopsitory.BankDao;
+import com.masai.repository.BankDao;
 
 @Service
 public class BankServiceImpl implements BankService{
