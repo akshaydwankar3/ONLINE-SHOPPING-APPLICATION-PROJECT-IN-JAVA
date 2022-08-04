@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.masai.exception.CustomerException;
 import com.masai.model.Customer;
-import com.masai.repository.CustomerDao;
+
+import com.masai.reopsitory.CustomerDao;
 
 @Service
 public class CustomerServiceImpl implements CustomerService{
@@ -68,5 +69,6 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	
 	}
+
 
 

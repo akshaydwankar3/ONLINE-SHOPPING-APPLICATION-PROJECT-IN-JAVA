@@ -1,3 +1,4 @@
+
 package com.masai.service;
 
 import java.util.List;
@@ -19,3 +20,6 @@ public interface CustomerService {
 	public List<Customer> viewAllCustomers()throws CustomerException;
 
 }
+
+
+
