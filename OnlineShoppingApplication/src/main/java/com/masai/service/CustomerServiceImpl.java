@@ -7,9 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.exception.CustomerException;
-import com.masai.model.Customer;
-
-import com.masai.reopsitory.CustomerDao;
+import com.masai.entity.Customer;
+import com.masai.repository.CustomerDao;
 
 @Service
 public class CustomerServiceImpl implements CustomerService{
@@ -24,7 +23,7 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public Customer updateCustomer(Customer customer) throws CustomerException {
+	public Customer updateCustomer(Customer customer) {
 
 		Optional<Customer> opt = cDao.findById(customer.getCustomerId());
 		
@@ -40,7 +39,7 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public Customer removeCustomer(Integer customerId) throws CustomerException {
+	public Customer removeCustomer(Integer customerId) {
 
 		Customer existingCustomer =  cDao.findById(customerId).orElseThrow(()-> new CustomerException("Customer does not exist with Roll "+customerId));
 		
@@ -50,7 +49,7 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public Customer viewCustomer(Integer customerId) throws CustomerException {
+	public Customer viewCustomer(Integer customerId)  {
 		
 		
 		return cDao.findById(customerId).orElseThrow(()-> new CustomerException("Customer does not exist with Roll "+customerId));
@@ -69,6 +68,3 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	
 	}
-
-
-

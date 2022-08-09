@@ -13,9 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.masai.model.Customer;
+import com.masai.entity.Customer;
 import com.masai.service.CustomerService;
-
 
 @RestController
 public class CustomerController {

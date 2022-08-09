@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.masai.dto.ProductDTO;
 import com.masai.entity.Product;
 import com.masai.exception.ProductNotFoundException;
-import com.masai.reopsitory.ProductDao;
+import com.masai.repository.ProductDao;
 import com.masai.service.ProductService;
 
 @RestController
@@ -129,5 +129,18 @@ public List<String> getProductNameByPrice(@PathVariable("price") Double price){
 		throw new ProductNotFoundException("Product is not found int the list by price :"+price);
 	}
 }
+
+@GetMapping("/pnamebycategory/{category}")
+public List<String> getProductNameByPrice(@PathVariable("category") String cat){
+	
+	List<String> pName= pDao.getProductnameByCatagory(cat);
+	if(pName.size()>0) {
+		return pName;
+	}
+	else {
+		throw new ProductNotFoundException("Product is not found int the list by category :"+cat);
+	}
+}
+
 	
 }

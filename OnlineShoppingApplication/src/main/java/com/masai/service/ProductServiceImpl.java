@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.masai.entity.Product;
 import com.masai.exception.ProductNotFoundException;
-import com.masai.reopsitory.ProductDao;
+import com.masai.repository.ProductDao;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -17,6 +17,7 @@ public class ProductServiceImpl implements ProductService {
 	private ProductDao pDao;
 	@Override
 	public Product saveProduct(Product product) {
+	
 		return pDao.save(product);
 	}
 

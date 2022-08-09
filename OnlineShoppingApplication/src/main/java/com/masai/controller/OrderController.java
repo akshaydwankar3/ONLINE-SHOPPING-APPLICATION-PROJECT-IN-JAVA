@@ -1,6 +1,8 @@
 package com.masai.controller;
 
+import java.text.DateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +16,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.masai.entity.Address;
+import com.masai.entity.Customer;
 import com.masai.entity.Order;
 import com.masai.entity.Product;
 import com.masai.exception.OrderNotFoundException;
-import com.masai.reopsitory.OrderDao;
+import com.masai.repository.OrderDao;
 import com.masai.service.OrderService;
 
 @RestController
@@ -90,28 +94,27 @@ public class OrderController {
 		}
 	}
 	
-	@GetMapping("/orderstatus/{productName}")
-	public List<String> getOrderStatus(@PathVariable("productName") String name) {
-		List<String> orderSt=oDao.getOrderStatusByProductName(name);
-		if(orderSt.size()>0) {
-			return orderSt;
-		}
-		else {
-			throw new OrderNotFoundException(name+ " Order is not delevered");
-		}
-	}
-	
-	
-	
-	@GetMapping("/getorderbydate/{orderDate}")
-	public List<Order> getOrderDetailbyDate(@PathVariable("orderDate") LocalDate date){
-		
-		return oService.getOrderDetailsByOrderDate(date);
+	@GetMapping("/getorderbydate/{String}")
+	public List<Order> getOrderDetailbyDate(@PathVariable("orderDate") String date){
+		DateTimeFormatter dfe= DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate date1= LocalDate.parse(date, dfe);
+		return oService.getOrderDetailsByOrderDate(date1);
 	}
 	
 	@GetMapping("/getorderbystatus/{orderStatus}")
 	List<Order> getOrderDetailsByStatus(@PathVariable("orderStatus") String status){
 		return oService.getOrderDetailsByStatus(status);
 	}
+	
+	@GetMapping("orderaddress/{orderId}")
+	public Address getAddressDetails(@PathVariable("orderId") Integer id) {
+		return oService.getAddressByOrderId(id);
+		
+	}
+	
+	@GetMapping("customerdetail/{orderId}")
+	public Customer getCustomerDetails(@PathVariable("orderId") Integer id) {
+		return oService.getCustomerByOrderId(id);
+		
+	}
 }
-

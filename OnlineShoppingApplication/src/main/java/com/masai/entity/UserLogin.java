@@ -8,21 +8,23 @@ import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-@Entity
-@Data
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
-@ToString
-public class Product {
+@Data
+@Entity
+public class UserLogin {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer productId;
-	private String productName;
-	private String category;
-	private double price;
-	private Integer quantity;
+	private Integer loginId;
+	public UserLogin(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
+	private String username;
+	private String password;
 	
+
 }
